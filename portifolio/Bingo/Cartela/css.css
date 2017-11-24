@@ -1,0 +1,25 @@
+body{
+	width: 500px;
+	margin: 0px auto;
+}
+
+h1{
+	width: 500px;
+	height:60px;
+	text-align:center;
+	background: #BEBEBE;
+	color: #FFFEF9;
+	border:10px solid #D4D4D4;
+	box-sizing:border-box;
+}
+td{
+	text-align:center;
+	height: 100px; 
+	width: 100px;
+	background-color: #BEBEBE;
+	border:10px solid #D4D4D4;
+	color:#FFFEF9;
+	font-family:arial;
+	font-size:50px;
+	font-weight:bold;
+}

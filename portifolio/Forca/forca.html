@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Forca</title>
+		<link rel="stylesheet" type="text/css" href="forca.css">
+		<meta charset="UTF-8">
+	</head>
+	<body>
+			<input type="text" maxlength="1" id="letra" class="inserir" placeholder="LETRA">
+			<button class="enviar" onclick="letra()">Enviar</button></br>
+			<input type="text" class="inserir" id="chute" placeholder="CHUTE">
+			<button class="enviar" onclick="chute()">Chute</button></br>
+			</br>
+			<button onclick="gerar()">Trocar Palavra</button></br>
+			<button onclick="cadastrar()">Cadastrar Palavra</button></br>
+			<input type="text" id="nova"></br>	
+			<button onclick="envia()" id="enviar">Enviar</button></br>
+		<table>
+			<tr id="forca">
+			</tr>
+		</table>
+		<script>
+			array = ['RADIO','TOALHA','CHUVA','PLANTA','FLOR','ARVORE','TORNEIRA','COLHER','AGUA','OXIGENIO'];
+			usados = [];
+			palavra = [];
+			enviar = document.getElementById("enviar");
+			enviar.style.display="none";
+			nova = document.getElementById("nova");
+			nova.style.display="none"
+			chutes = document.getElementById("chute");
+			letras = document.getElementById("letra");
+			window.onload = function(){<!--Ao carregar a pagina entra nesta funcao-->
+			letras.value="";
+			chutes.value="";
+				var j=0;
+				<!--Gera um numero aleatorio de acordo com o tamanho do array-->
+				var i = Math.floor(Math.random()*array.length);
+					usados[usados.length]=i;<!--armazena no array de usados o numero gerado-->
+					for(var k=0;k<array[i].length;k++){<!--Gera os quadrados de acordo com o tamanho da palavra-->
+					 setTimeout(function(){<!--Animação viadinha -->
+						var td = document.createElement("td");<!--Cria um TD-->
+						var p = document.createElement("p");
+						var tds = document.getElementsByTagName("td");<!--Pega a quantidade de tds criados-->
+						p.id ='n'+tds.length;<!--coloca uma id no td concatenando n+tds.length-->
+						var tr = document.getElementById("forca");<!--pega o tr-->
+						td.appendChild(p);
+						tr.appendChild(td);<!--amarra o td ao tr-->
+						},120*k);
+					}
+					palavra.length=0;
+					aux=array[i];
+					for(var k=0;k<array[i].length;k++)
+						palavra[k]=aux.charAt(k);
+					chute.maxLength = array[i].length;
+			};			
+			function gerar(){
+				<!--Se existir algum td ele sera listado e chamara a funcao limpar-->
+				var limpa = document.getElementsByTagName("td"),aux="";
+				if(limpa.length!=0)
+					limpar();
+				var j=0;
+				<!--Gera um numero aleatorio de acordo com o tamanho do array-->
+				var i = Math.floor(Math.random()*array.length);
+				<!--Procura o numero gerado no array-->
+				j=usados.indexOf(i);
+				<!--este array de usados evita mostrar duas vezes a mesma palavra, enquanto for menor igual permite entrar-->
+				if(usados.length <= array.length-1){
+				<!--Aqui trataremos o resultado do index, se for diferente de -1 ele entra no while que força a gerar um numero novo-->
+					while(j!=-1){
+						i = Math.floor(Math.random()*array.length);
+						j = usados.indexOf(i);
+					}
+					<!--Apos armazena no array de usados o numero-->
+					usados[usados.length]=i;
+					for(var k=0;k<array[i].length;k++){<!--Gera os quadrados de acordo com o tamanho da palavra-->
+					 setTimeout(function(){<!--Animação viadinha -->
+						var td = document.createElement("td");<!--Cria um TD-->
+						var p = document.createElement("p");
+						var tds = document.getElementsByTagName("td");<!--Pega a quantidade de tds criados-->
+						p.id ='n'+tds.length;<!--coloca uma id no td concatenando n+tds.length-->
+						var tr = document.getElementById("forca");<!--pega o tr-->
+						tr.appendChild(td);<!--amarra o td ao tr-->
+						},120*k);
+					}
+					palavra.length=0;
+					aux=array[i];
+					for(var k=0;k<array[i].length;k++)
+						palavra[k]=aux.charAt(k);
+				}
+				else{
+					usados.length=0;
+					var i = Math.floor(Math.random()*array.length);
+					for(var k=0;k<array[i].length;k++){<!--Gera os quadrados de acordo com o tamanho da palavra-->
+					 setTimeout(function(){<!--Animação viadinha -->
+						var td = document.createElement("td");<!--Cria um TD-->
+						var tds = document.getElementsByTagName("td");<!--Pega a quantidade de tds criados-->
+						td.id ='n'+tds.length;<!--coloca uma id no td concatenando n+tds.length-->
+						var tr = document.getElementById("forca");<!--pega o tr-->
+						td.appendChild(p);
+						tr.appendChild(td);<!--amarra o td ao tr-->
+						},120*k);
+				}
+				};
+			}
+			function cadastrar(){
+				<!--Pega o input-->
+				var nova = document.getElementById("nova");
+				<!--Mostra o input e o enviar-->
+				nova.style.display="";
+				enviar.style.display="";
+				<!--Zera o conteudo-->
+				nova.value="";
+			};
+			function envia(){
+				<!--Pega o valor do input-->
+				array[array.length]=nova.value;
+				<!--Esconde o input e o enviar-->
+				nova.style.display="none";
+				enviar.style.display="none";
+			};
+			function limpar(){
+				<!--Pega o tr-->
+				var tr = document.getElementById("forca");
+				while (tr.firstChild) {
+				<!--Enquanto existir filhos (td) dentro do tr ele vai remover-->
+					tr.removeChild(tr.firstChild);
+				}
+			};
+			
+			function letra(){
+				for(var i=0;i<=palavra.length;i++){
+					if(palavra[i]==letras.value.toUpperCase()){
+						var td = document.getElementById('n'+i);
+						var p = document.createElement('p');
+						var texto = document.createTextNode(palavra[i]);
+						p.appendChild(texto);
+						td.appendChild(p);
+						palavra[i]="";
+					}
+				}
+			};
+			function chute(){
+				i = usados.length-1;
+				gabarito=array[usados[i]];
+				if(gabarito==chutes.value.toUpperCase()){
+					for(var i=0;i<=gabarito.length;i++){
+						p=document.getElementById('n'+i);
+						if(p.innerHTML == ""){
+							texto = document.createTextNode(gabarito.charAt(i));
+							p.appendChild(texto);
+						}
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,142 @@
+<html>
+
+<head>
+    <title>ALGORITMO</title>
+</head>
+
+<body>
+    <pre>
+        <code>
+    <span>/*Autor Juliano Braz, 1º Sistemas Noite */</span>
+    #include &ltstdio.h&gt #include &ltstdlib.h&gt int main (){ int mat[5][19]={ 1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1, 1,0,0,0,1,0,1,0,0,1,0,0,1,0,0,0,1,0,0,
+    1,1,1,0,1,1,1,0,0,1,0,0,1,1,1,0,1,0,0, 1,0,0,0,1,0,1,0,0,1,0,0,1,0,0,0,1,0,0, 1,0,0,0,1,0,1,0,0,1,0,0,1,1,1,0,1,1,1,
+    },y,z;
+    <span>/*Aqui podemos ver a formatação da nossa matriz*/</span>
+    for (y=0;y
+    <=4;y++){<span>/*É necessário um laço aninhado para que se possa rodar as linhas e colunas da matriz, neste caso y é responsavel pelas
+        linhas.*/</span>
+        printf("\n");
+        <span>/*pula linha para que possa ser possível escrever a imagem*/</span>
+        for (z=0;z
+        <=18;z++){<span>/*Este laço é resposável pela leitura das colunas*/
+            </span>
+            if(mat[y][z]==1)
+            <span>{/*aqui temos uma estrutura condicional onde se a matriz for igual a 1 executará a condição*/</span>
+            printf("\xDB");
+            <span>/*\xDB imprimi um caractér ANSCI quadrado quando for 1*/</span>
+            } else{ printf (" ");
+            <span>/*Imprime um espaço*/</span>
+            } } } }
+            </code>
+            </pre>
+    <p>Agora vamos ver o código da casa, neste código, gostaria de agradecer primeiramente ao professor Jefferson pela ajuda
+        prestada e a um usuário (_Cristiano_), do fórum Script que disponibilizou o código de cores necessários para que
+        fosse possível manipular a imagem gerada com cor.
+        <p>
+            <p>Atenção a matriz foi feita para rodar em C++, em C alguns elementos da segunda tabela mudam de posição, como
+                não é nosso foco não será demostrado aqui.</p>
+            <pre>
+                        <code>
+            #include &ltstdio.h&gt
+            #include &ltstdlib.h&gt
+            #include &ltconio.h&gt<span>/*biblioteca responsavel pela função textcolor*/</span>
+            #include &ltwindows.h&gt<span>/*biblioteca responsavel pelo sistema de cores do windows*/</span>
+            
+            <span>/*AUTOR DA BIBLIOTECA DE CORES CRISTIANO (_Cristiano_) FORUM SCRIPBRASIL
+            http://www.scriptbrasil.com.br/forum/topic/131376-duvida-sobre-textcolor/
+            
+            -----------------Cores do DOS-------------------------------------------------
+            Descrição: Procedimento para definição de Cores do DOS
+            ------------------------------------------------------------------------------*/</span>
+            enum DOS_COLORS {
+                BLACK, BLUE, GREEN, CYAN, RED, MAGENTA, BROWN,
+                LIGHT_GRAY, DARK_GRAY, LIGHT_BLUE, LIGHT_GREEN, LIGHT_CYAN,
+                LIGHT_RED, LIGHT_MAGENTA, YELLOW, WHITE };
+            <span>/*----------------------------------------------------------------------------*/
+            
+            /*-----------------Cores das letras---------------------------------------------
+            Descrição: Procedimento para inserir cores de letras no programa
+            ------------------------------------------------------------------------------*/</span>
+            void textcolor (DOS_COLORS iColor)
+            {
+                HANDLE hl = GetStdHandle(STD_OUTPUT_HANDLE);
+                CONSOLE_SCREEN_BUFFER_INFO bufferInfo;
+                BOOL b = GetConsoleScreenBufferInfo(hl, &bufferInfo);
+                bufferInfo.wAttributes &= 0x00F0;
+                SetConsoleTextAttribute (hl, bufferInfo.wAttributes |= iColor);
+            }
+            
+            int main (){
+                int mat1[9][9]={<span>/*primeira matriz*/</span>
+                0,	0,	0,	0,	0,	0,	0,	0,	0,
+                10,	0,	0,	0,	0,	0,	0,	0,	0,
+                10,	10,	0,	10,	0,	0,	0,	0,	0,
+                10,	10,	0,	0,	10,	0,	0,	0,	0,
+                10,	10,	0,	0,	10,	0,	0,	0,	0,
+                1,	1,	0,	0,	1,	0,	0,	0,	0,
+                0,	1,	0,	0,	1,	0,	0,	0,	0,
+                0,	0,	0,	0,	0,	0,	0,	0,	11,
+                0,	0,	0,	0,	0,	0,	0,	0,	101,
+                };
+                int mat2[9][9]=<span>{/*segunda matriz*/</span>
+                0,	0,	0,	0,	1,	0,	0,	0,	0,
+                0,	0,	0,	0,	0,	1,	0,	0,	0,
+                0,	0,	0,	0,	0,	0,	0,	0,	0,
+                0,	0,	0,	1,	0,	0,	0,	0,	0,
+                0,	1,	1,	1,	0,	0,	1,	1,	0,
+                0,	0,	1,	0,	0,	0,	0,	0,	0,
+                0,	0,	1,	0,	0,	0,	0,	0,	0,
+                1,	1,	1,	1,	1,	1,	1,	1,	1,
+                1,	1,	1,	1,	1,	1,	1,	1,	1,
+                };
+                int mat3[9][9];<span>/*como a terceira matriz é de ordem MP, e possui o numero
+            de linhas da primeira tabela, e o numero de colunas da segunda,teremos uma 
+            terceira matriz de ordem 9x9*/</span>
+                int a,aux,b,c,d,e;
+                for (a=0;a<9;a++){<span>/*roda o laço das linhas*/</span>
+                    for(b=0;b<9;b++){<span>/*roda o laço das colunas*/</span>
+                        for(c=0;c<9;c++){<span>/*este laço rodará ao mesmo tempo uma 
+            linha da mat1 e uma coluna da mat2*/</span>
+                            aux+=(mat1[a][c]*mat2[c][b]);<span>/*a variavel c 
+            é responsavel pela multiplicação das colunas e linhas e só terminara quando 
+            atingir 8 mudando de linha e coluna, ela armazena em uma variavel auxiliar o 
+            resultado*/</span>
+                        }
+                        mat3[a][b]=aux;<span>/*logo após ela jogara o resultado obtido
+            na primeira linha da primeira coluna e assim sucessivamente*/
+                        aux=0;/*reseta o valor de a0*/</span>
+                    }
+                }
+                for (d=0;d<9;d++){<span>/*este laço é responsavel pela leitura das linhas*/</span>
+                    printf("\n");<span>/*responsável pela quebra de linha*/</span>
+                    for(e=0;e<9;e++){<span>/*laço responsavel pelas colunas*/</span>
+                            if (mat3 [d][e]==0){<span>/*condicão se a posição atual
+            da matriz for 0 ele ira imprimir um espaço em branco, porque o programador que 
+            digita este comentário estava com preguica de fazer um quadrado preto <3*/</span>
+                            printf (" ");
+                        }
+                        else if(mat3[d][e]==10){<span>/*imprimirá em vermelho*/</span>
+                            textcolor (RED);
+                            printf ("\xDC");
+                        }
+                        else if (mat3[d][e]==1){<span>/*imprimirá em branco*/</span>
+                            textcolor (WHITE);
+                            printf ("\xDB");
+                        }
+                        else if (mat3[d][e]==11){<span>/*imprimirá em verde*/</span>
+                            textcolor (GREEN);
+                            printf ("\xDB");
+                        }
+                        else if (mat3[d][e]==101){<span>/*imprimirá azul*/</span>
+                            textcolor (LIGHT_CYAN);
+                            printf ("\xDB");
+                        }
+                    }
+                }
+            }
+                        </code>
+                        </pre>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+body{
+	margin:0px auto;
+	width:1100px;
+}
+td{
+	text-align:center;
+	height: 50px; 
+	width: 50px;
+	background-color: #BEBEBE;
+	border:10px solid #D4D4D4;
+	box-sizing:box-content;
+	color:#FFFEF9;
+	font-family:arial;
+	font-size:30px;
+	font-weight:bold;
+}
+p{
+	margin-top:0px;
+	color:white;
+	text-align:center;
+	border:10px solid #D4D4D4;
+	background-color:#BEBEBE;
+	font-family:arial;
+	font-weight:Bold;
+	font-size:70px;
+}
+button{
+	position:relative;
+	width:150px;
+	height:50px;
+	color:white;
+	background-color:#BEBEBE;
+	border:10px solid #D4D4D4;
+	font-weight:bold;
+}

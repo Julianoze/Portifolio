@@ -1,0 +1,38 @@
+td{
+	width:100px;
+	height:100px;
+	box-sizing:box-content;
+	border-bottom:5px solid;
+}
+
+table{
+	margin:0px auto;
+}
+
+button{
+	border-style:none;
+	font-family:arial;
+	font-weight:bold;
+	width:200px;
+	height:25px;
+	margin:1px;
+}
+input{
+	text-align:center;
+}
+.inserir{
+	margin:1px;
+	width:80px;
+	height:20px;
+}
+.enviar{
+	width:110px;
+	height:25px;
+}
+tr td p{
+	font-size:30px;
+	font-family:arial;
+	font-weight:bold;
+	text-align:center;
+	vertical-align:middle;
+}

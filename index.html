@@ -1,0 +1,143 @@
+<!doctype html>
+<html class="no-js" lang="pt-br">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="refresh" content="888">
+	<title>FATEC INVADERS</title>
+	<link rel="shortcut icon" href="img/favicon.png" />
+	<link rel="stylesheet" type="text/css" href="css/foundation.css" />
+	<link rel="stylesheet" type="text/css" href="css/app.css" />
+</head>
+
+<body>
+	<center id="logo">
+		<img src="img/index/logo.png" alt="logo do jogo">
+	</center>
+	<center>
+		<div id="botao">
+			<button id="botao1" class="botao">
+				JOGAR
+			</button>
+			<center>
+				<button id="botao2" data-open="comojogar" class="botao">
+					COMO JOGAR
+				</button>
+			</center>
+			<button id="botao3" data-open="sobre" class="botao">
+				SOBRE
+			</button>
+	</center>
+	</div>
+	<div class="reveal" id="comojogar" data-reveal>
+		<center>
+			<h1>COMO JOGAR</h1>
+		</center>
+		<center>
+			<p class="lead">PREPARE SEU TECLADO, A JOGATINA VAI COMEÇAR</p>
+		</center>
+		<p>O FATEC Invaders não é um dark souls, cuphead, mega-man ou contra, jogar ele não é nada díficil são apenas três botões.</p>
+		<p>Com a seta para ◄ esquerda, ou para direita ► você pode movimentar a nave. E para atirar nos professores você pode usar a tecla espaço!</p>
+		<p>PS: Sem print nessa tela, para evitar spoilers!</p>
+		<center><h5>ESPERO QUE VOCÊ CURTA A EXPERIÊNCIA!!</h5></center>
+		<button class="close-button" data-close aria-label="Close modal" type="button">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+
+	<div class="reveal" id="sobre" data-reveal>
+		<center>
+			<h1>SOBRE</h1>
+		</center>
+		<center>
+			<p class="lead">JULIANO BRAZ</p>
+		</center>
+		<p>Primeiramente obrigado ao
+			<a id="index" href="#">DIEGO</a> pela trilha sonora, e a todos que aturaram minhas incessantes prints, dúvidas e questionamentos.</br>
+			A ideia deste portifólio surgiu quando queria estudar o livro do Éderson Cássio - Desenvolva jogos com HTML 5 Canvas e Javascript,
+			você deve estar se perguntando, mas você só copiou o livro?
+		</p>
+		<p>Não, pequeno gafanhoto. O livro está orientado ao ECMA Script 5, com muito custo eu reaproveitei parte da lógica e trouxe
+			para o ECMA Script 6, isso causou diversos problemas e mudanças, criação de novas classes e mudanças de parâmetros. No
+			Livro original, a versão final, conta com 10 classes, entre elas, colisor, spritesheet, nave. Neste projeto, consegui
+			reduzir com o ECMA 6, e algumas mudanças de layout para 4 classes principais e alguns códigos separados.
+		</p>
+		<p>Para fazer esse portifólio, eu usei competências aprendidas desde o primeiro semestre, e algumas de alguns cursos como
+			Corel, Photoshop, Javascript. Javascript para muitos sempre foi uma matéria tenebrosa, e nos calabouços deste castelo
+			chamado FATEC, ouviam se lamurias sobre a dificuldade desta matéria, isto despertou um pequeno desespero, e nas férias
+			procurei conhecer essa linguagem tão viva e maravilhosa, e me apaixonei. Por isso dediquei muitas horas de estudo a fazer
+			esse portifólio inteiro em Javascript puro.
+		</p>
+		<p> Para download do código acesse meu <a id='index' target='_blank' href='https://github.com/julianoze'>GITHUB</a></p>
+		<center>
+			<h5>ESPERO QUE VOCÊ CURTA A EXPERIÊNCIA!!</h5>
+		</center>
+		<button class="close-button" data-close aria-label="Close modal" type="button">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+</body>
+<script>
+	let jogar = new Audio();
+	let index = new Audio();
+	let botao = document.getElementById("botao")
+
+	jogar.src = "sound/start.mp3";
+	jogar.volume = 0.5;
+	jogar.load();
+
+	index.src = "sound/index.mp3";
+	index.volume = 0.5;
+	index.load();
+
+
+	botao1.addEventListener("click", () => {
+		jogar.play();
+		jogar.addEventListener("ended", () => {
+			location.href = "fatecinvaders.html";
+		})
+	})
+
+	botao1.addEventListener("mouseenter", () => {
+		index.play();
+		botao1.innerHTML = "<spam> ►</spam> JOGAR"
+	})
+
+	botao2.addEventListener("mouseenter", () => {
+		index.play();
+		botao2.innerHTML = "<spam> ►</spam> COMO JOGAR"
+	})
+
+	botao3.addEventListener("mouseenter", () => {
+		index.play();
+		botao3.innerHTML = "<spam> ►</spam> SOBRE"
+	})
+
+
+	botao1.addEventListener("mouseleave", () => {
+		index.play();
+		botao1.innerHTML = "JOGAR"
+	})
+
+	botao2.addEventListener("mouseleave", () => {
+		index.play();
+		botao2.innerHTML = "COMO JOGAR"
+	})
+
+	botao3.addEventListener("mouseleave", () => {
+		index.play();
+		botao3.innerHTML = "SOBRE"
+	})
+
+</script>
+<script src="js/vendor/jquery.js"></script>
+<script src="js/vendor/what-input.js"></script>
+<script src="js/vendor/foundation.min.js"></script>
+<script>
+	$(document).foundation();
+</script>
+</body>
+
+</html>
