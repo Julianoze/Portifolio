@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="pt-br">
 
 <head>
@@ -7,14 +7,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="refresh" content="888">
 	<title>FATEC INVADERS</title>
-	<link rel="shortcut icon" href="img/favicon.png" />
-	<link rel="stylesheet" type="text/css" href="css/foundation.css" />
-	<link rel="stylesheet" type="text/css" href="css/app.css" />
+	<link rel="shortcut icon" href="src/style/img/favicon.png" />
+	<link rel="stylesheet" type="text/css" href="src/style/css/foundation.css" />
+	<link rel="stylesheet" type="text/css" href="src/style/css/app.css" />
 </head>
 
 <body>
 	<center id="logo">
-		<img src="img/index/logo.png" alt="logo do jogo">
+		<img src="src/style/img/index/logo.png" alt="logo do jogo">
 	</center>
 	<center>
 		<div id="botao" class="hide-for-small-only">
@@ -31,10 +31,7 @@
 			</button>
 		</div>
 		<div class="show-for-small-only">
-			<button class="botao">
-				POR FAVOR ACESSE DE UM DESKTOP
-			</button>
-			<button id="botao3" data-open="sobre" class="botao">
+			<button data-open="sobre" class="botao">
 				SOBRE
 			</button>
 		</div>
@@ -87,65 +84,11 @@
 		</button>
 	</div>
 </body>
-<script>
-	let jogar = new Audio();
-	let index = new Audio();
-	let botao = document.getElementById("botao")
-
-	jogar.src = "sound/start.mp3";
-	jogar.volume = 0.5;
-	jogar.load();
-
-	index.src = "sound/index.mp3";
-	index.volume = 0.5;
-	index.load();
-
-
-	botao1.addEventListener("click", () => {
-		jogar.play();
-		jogar.addEventListener("ended", () => {
-			location.href = "fatecinvaders.html";
-		})
-	})
-
-	botao1.addEventListener("mouseenter", () => {
-		index.play();
-		botao1.innerHTML = "<spam> ►</spam> JOGAR"
-	})
-
-	botao2.addEventListener("mouseenter", () => {
-		index.play();
-		botao2.innerHTML = "<spam> ►</spam> COMO JOGAR"
-	})
-
-	botao3.addEventListener("mouseenter", () => {
-		index.play();
-		botao3.innerHTML = "<spam> ►</spam> SOBRE"
-	})
-
-
-	botao1.addEventListener("mouseleave", () => {
-		index.play();
-		botao1.innerHTML = "JOGAR"
-	})
-
-	botao2.addEventListener("mouseleave", () => {
-		index.play();
-		botao2.innerHTML = "COMO JOGAR"
-	})
-
-	botao3.addEventListener("mouseleave", () => {
-		index.play();
-		botao3.innerHTML = "SOBRE"
-	})
-
-</script>
-<script src="js/vendor/jquery.js"></script>
-<script src="js/vendor/what-input.js"></script>
-<script src="js/vendor/foundation.min.js"></script>
-<script>
-	$(document).foundation();
-</script>
+<script src="src/js/index.js"></script>
+<script src="src/js/vendor/jquery.js"></script>
+<script src="src/js/vendor/what-input.js"></script>
+<script src="src/js/vendor/foundation.min.js"></script>
+<script src="src/js/vendor/app.js"></script>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="pt-br">
 
 <head>
@@ -7,20 +7,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="refresh" content="888">
 	<title>FATEC INVADERS</title>
-	<link rel="shortcut icon" href="img/favicon.png" />
-	<link rel="stylesheet" type="text/css" href="css/foundation.css" />
-	<link rel="stylesheet" type="text/css" href="css/app.css" />
-	<script src="Animacao.js"></script>
-	<script src="Nave.js"></script>
-	<script src="Tiro.js"></script>
-	<script src="Professor.js"></script>
+	<link rel="shortcut icon" href="src/style/img/favicon.png" />
+	<link rel="stylesheet" type="text/css" href="src/style/css/foundation.css" />
+	<link rel="stylesheet" type="text/css" href="src/style/css/app.css" />
 </head>
 
 <body>
 	<div class="reveal" data-reveal>
 		<div>
 			<div id="texto">
-				<!-- modal -->
 			</div>
 			<button class="close-button" id="reveal" type="button">
 				<span class="red" aria-hidden="true">&times;</span>
@@ -40,9 +35,9 @@
 	<div class="row expanded">
 		<div class="large-4 medium-4 column text-align-left jogo">
 			3
-			<img class="bottom-invaders" src="img/nave.png" alt="imagem da nave">
-			<img class="bottom-invaders" src="img/nave.png" alt="imagem da nave">
-			<img class="bottom-invaders" src="img/nave.png" alt="imagem da nave">
+			<img class="bottom-invaders" src="src/style/img/nave.png" alt="imagem da nave">
+			<img class="bottom-invaders" src="src/style/img/nave.png" alt="imagem da nave">
+			<img class="bottom-invaders" src="src/style/img/nave.png" alt="imagem da nave">
 		</div>
 		<div class="large-1 medium-1 column text-align-right jogo"></div>
 		<center>
@@ -52,14 +47,8 @@
 		</center>
 		<center>
 			<div class="large-4 medium-4 column text-align-right jogo">
-				<a target="_blank" href="https://www.fb.com/julianoze">
-					<img class="bottom-invaders-img" src="img/Footer/fb.png" alt="FACEBOOK Logo">
-				</a>
-				<a target="_blank" href="https://www.instagram.com/julianoze">
-					<img class="bottom-invaders-img" src="img/Footer/instagram.png" alt="INSTAGRAM Logo">
-				</a>
 				<a target="_blank" href="https://www.github.com/julianoze">
-					<img class="bottom-invaders-img" src="img/Footer/git.png" alt="GITHUB Logo">
+					<img class="bottom-invaders-img" src="src/style/img/Footer/git.png" alt="GITHUB Logo">
 				</a>
 				JULIANO BRAZ
 			</div>
@@ -67,226 +56,17 @@
 		<div class="large-1 medium-1 column text-align-right jogo">CREDITS 00</div>
 	</div>
 </body>
+<script src="src/js/jogo/Animacao.js"></script>
+<script src="src/js/jogo/Nave.js"></script>
+<script src="src/js/jogo/Tiro.js"></script>
+<script src="src/js/jogo/Professor.js"></script>
+<script src="src/js/jogo/modal.js"></script>
+<script src="src/js/jogo/principal.js"></script>
+<script src="src/js/vendor/jquery.js"></script>
+<script src="src/js/vendor/what-input.js"></script>
+<script src="src/js/vendor/foundation.min.js"></script>
 <script>
-	//Declaração da classe
-	let animacao = new Animacao();
-	animacao._trilha.play();
-	//Declaração das imagens utilizadas no jogo
-	let imgNave = new Image();
-	let thiago = new Image();
-	let cristiano = new Image();
-	let alexandre = new Image();
-	let jeferson = new Image();
-	let jorge = new Image();
-	let rogerio = new Image();
-	let fabiana = new Image();
-	let satiko = new Image();
-	let ligia = new Image();
-	let boer = new Image();
-	let explosao = new Image();
 
-	//Método responsável por gerar as posições aleatóriamente
-	let arrayX = [(window.innerWidth / 2) - 400, (window.innerWidth / 2) + 400, (window.innerWidth / 2) - 200, (window.innerWidth / 2) + 200, window.innerWidth / 2, (window.innerWidth / 2) - 400, (window.innerWidth / 2) + 400, (window.innerWidth / 2) - 200, (window.innerWidth / 2) + 200, window.innerWidth / 2]
-	let arrayY = [200, 200, 200, 200, 200, 10, 10, 10, 10, 10];
-
-	//Esse contador corrige um problema importante da classe tiro, garantindo que cada tiro irá sair com um espaçamento padrão caso a tecla espaço esteja pressionada
-	let contador = 0;
-
-	//Passando o caminho das imagens para as classes
-	imgNave.src = 'img/nave.png';
-	thiago.src = "img/thiago.png";
-	cristiano.src = "img/cristiano.png";
-	alexandre.src = "img/alexandre.png";
-	jeferson.src = "img/jeferson.png";
-	jorge.src = "img/jorge.png";
-	rogerio.src = "img/rogerio.png";
-	fabiana.src = "img/fabiana.png";
-	satiko.src = "img/satiko.png";
-	ligia.src = "img/ligia.png";
-	boer.src = "img/boer.png";
-	explosao.src = "img/explosao.png"
-
-	//Declaração da classe nave, separado por conta dos métodos
-	let nave = new Nave(imgNave);
-
-	//Passamos nave como parâmetro para a classe animação, responsável pelo processamento geral do jogo.
-	animacao.novoSprite(nave);
-
-	//Ao carregar a imagem da nada, irá centralizar na página (linha 67), e inicia o processamento
-	imgNave.onload = (() => {
-		nave._x = (window.innerWidth / 2) - 30;
-		nave._velocidade = 7;
-		animacao.ligar();
-	})
-
-	//Ao apertar uma tecla atualiza a posição da nave.
-	document.addEventListener('keydown', (event) => {
-		nave.atualizar(event.keyCode);
-		//fecha o reveal
-		if (event.keyCode == 27) {
-			animacao._body.classList.remove = "is-reveal-open";
-			animacao._div[0].style = "display:none;"
-			animacao._reveal[0].style = "top: 187px; display: none;"
-			animacao.ligar();
-		}
-	});
-
-	//Ao pressionar uma tecla verifica se a mesma é a tecla espaço e então atira.
-	document.addEventListener('keypress', (event) => {
-		let length = animacao._sprite[animacao._sprite.length - 1]
-		if (animacao._sprite != new Nave()) {
-			if (contador == 0) {
-				let tiro = new Tiro(nave._x + 31, nave._y);
-				animacao.novoSprite(tiro);
-				tiro._som.play();
-				contador++;
-			}
-			if ((event.keyCode == 32 || event.keyCode == 0) && (nave._y - length._y) > 100) {
-				let tiro = new Tiro(nave._x + 31, nave._y);
-				animacao.novoSprite(tiro);
-				tiro._som.play();
-			}
-		}
-	});
-
-	animacao._trilha.addEventListener("ended", () => {
-		animacao._trilha.play();
-	})
-	//Carrega os professores, passando a posição x e y de acordo com o array das linhas 39 e 40, após usar ele remove a posição do array e passa como parâmetro para classe animação
-	thiago.onload = (() => {
-		let professor = new Professor(thiago);
-		professor._x = arrayX[arrayX.length - 1];
-		professor._y = arrayY[arrayY.length - 1];
-		professor._xFinal = professor._x + (professor._imagem.width / 6);
-		professor._yFinal = professor._y + (professor._imagem.height / 6);
-		professor._nome = 'Thiago';
-		arrayX.pop(arrayX.length - 1);
-		arrayY.pop(arrayY.length - 1);
-		animacao.novoSprite(professor);
-	})
-
-	cristiano.onload = (() => {
-		let professor = new Professor(cristiano);
-		professor._x = arrayX[arrayX.length - 1];
-		professor._y = arrayY[arrayY.length - 1];
-		professor._xFinal = professor._x + (professor._imagem.width / 6);
-		professor._yFinal = professor._y + (professor._imagem.height / 6);
-		professor._nome = 'Cristiano';
-		arrayX.pop(arrayX.length - 1);
-		arrayY.pop(arrayY.length - 1);
-		animacao.novoSprite(professor);
-	})
-
-	alexandre.onload = (() => {
-		let professor = new Professor(alexandre);
-		professor._x = arrayX[arrayX.length - 1];
-		professor._y = arrayY[arrayY.length - 1];
-		professor._xFinal = professor._x + (professor._imagem.width / 6);
-		professor._yFinal = professor._y + (professor._imagem.height / 6);
-		professor._nome = 'Alexandre';
-		arrayX.pop(arrayX.length - 1);
-		arrayY.pop(arrayY.length - 1);
-		animacao.novoSprite(professor);
-	})
-
-	jeferson.onload = (() => {
-		let professor = new Professor(jeferson);
-		professor._x = arrayX[arrayX.length - 1];
-		professor._y = arrayY[arrayY.length - 1];
-		professor._xFinal = professor._x + (professor._imagem.width / 6);
-		professor._yFinal = professor._y + (professor._imagem.height / 6);
-		professor._nome = 'Jeferson';
-		arrayX.pop(arrayX.length - 1);
-		arrayY.pop(arrayY.length - 1);
-		animacao.novoSprite(professor);
-	})
-
-	jorge.onload = (() => {
-		let professor = new Professor(jorge);
-		professor._x = arrayX[arrayX.length - 1];
-		professor._y = arrayY[arrayY.length - 1];
-		professor._xFinal = professor._x + (professor._imagem.width / 6);
-		professor._yFinal = professor._y + (professor._imagem.height / 6);
-		professor._nome = 'Jorge';
-		arrayX.pop(arrayX.length - 1);
-		arrayY.pop(arrayY.length - 1);
-		animacao.novoSprite(professor);
-	})
-
-	rogerio.onload = (() => {
-		let professor = new Professor(rogerio);
-		professor._x = arrayX[arrayX.length - 1];
-		professor._y = arrayY[arrayY.length - 1];
-		professor._xFinal = professor._x + (professor._imagem.width / 6);
-		professor._yFinal = professor._y + (professor._imagem.height / 6);
-		professor._nome = 'Rogerio';
-		arrayX.pop(arrayX.length - 1);
-		arrayY.pop(arrayY.length - 1);
-		animacao.novoSprite(professor);
-	})
-
-	fabiana.onload = (() => {
-		let professor = new Professor(fabiana);
-		professor._x = arrayX[arrayX.length - 1];
-		professor._y = arrayY[arrayY.length - 1];
-		professor._xFinal = professor._x + (professor._imagem.width / 6);
-		professor._yFinal = professor._y + (professor._imagem.height / 6);
-		professor._nome = 'Fabiana';
-		arrayX.pop(arrayX.length - 1);
-		arrayY.pop(arrayY.length - 1);
-		animacao.novoSprite(professor);
-	})
-
-	satiko.onload = (() => {
-		let professor = new Professor(satiko);
-		professor._x = arrayX[arrayX.length - 1];
-		professor._y = arrayY[arrayY.length - 1];
-		professor._xFinal = professor._x + (professor._imagem.width / 6);
-		professor._yFinal = professor._y + (professor._imagem.height / 6);
-		professor._nome = 'Satiko';
-		arrayX.pop(arrayX.length - 1);
-		arrayY.pop(arrayY.length - 1);
-		animacao.novoSprite(professor);
-	})
-
-	ligia.onload = (() => {
-		let professor = new Professor(ligia);
-		professor._x = arrayX[arrayX.length - 1];
-		professor._y = arrayY[arrayY.length - 1];
-		professor._xFinal = professor._x + (professor._imagem.width / 6);
-		professor._yFinal = professor._y + (professor._imagem.height / 6);
-		professor._nome = 'Ligia';
-		arrayX.pop(arrayX.length - 1);
-		arrayY.pop(arrayY.length - 1);
-		animacao.novoSprite(professor);
-	})
-
-	boer.onload = (() => {
-		let professor = new Professor(boer);
-		professor._x = arrayX[arrayX.length - 1];
-		professor._y = arrayY[arrayY.length - 1];
-		professor._xFinal = professor._x + (professor._imagem.width / 6);
-		professor._yFinal = professor._y + (professor._imagem.height / 6);
-		professor._nome = 'Boer';
-		arrayX.pop(arrayX.length - 1);
-		arrayY.pop(arrayY.length - 1);
-		animacao.novoSprite(professor);
-	})
-
-	//Fecha o reveal
-	reveal.addEventListener("click", () => {
-		animacao._body.classList.remove = "is-reveal-open";
-		animacao._div[0].style = "display:none;"
-		animacao._reveal[0].style = "top: 187px; display: none;"
-		animacao.ligar();
-	})
-
-</script>
-<script src="js/vendor/jquery.js"></script>
-<script src="js/vendor/what-input.js"></script>
-<script src="js/vendor/foundation.min.js"></script>
-<script>
-	$(document).foundation();
 </script>
 </body>
 
