@@ -1,0 +1,30 @@
+<%- contentFor('style') %>
+<link rel="stylesheet" type="text/css" href="/style/css/modal.css" />
+<link rel="stylesheet" type="text/css" href="/style/css/crud.css" />
+<link href="/style/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<%- contentFor('content') %>
+<div class="row p-background form">
+	<div class="large-12 column">
+		<ul class="vertical menu accordion-menu" data-accordion-menu>
+			<li>
+				<a href="#" class="list-a"><img class="thumb" src="/style/img/rogerio.png">ROGÉRIO LEÃO</a>
+				<ul class="menu vertical nested">
+					<li>
+						<div class="row">
+							<div class="large-10 column">
+								<a href="#" class="list-a-sub">Item 1A</a>
+							</div>
+							<div class="large-2 column">
+								<a href="" class="space"><i class="fa fa-trash deletar fa-2x" aria-hidden="true"></i></a>
+								<a href="" ><i class="fa fa-pencil editar fa-2x" aria-hidden="true"></i></a>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<button class="hollow button button-adicionar" onclick="window.location.href='/cadastrar'" href="/cadastrar"><p class="p-button">+</p></button>

@@ -1,0 +1,88 @@
+@font-face{
+	font-family: Pixeled;
+	src:url("../fonts/pixel.ttf");
+}
+
+body{
+	background-color:black;
+	overflow: hidden;
+}
+
+#logo{
+	padding:60px;
+}
+
+#index{
+	color:black;
+	font-size:15px;
+	font-weight: bolder;
+	text-decoration: underline;
+}
+
+img{
+	width: 50%;
+	height: 50%;
+}
+
+.botao{
+	color:white;
+	font-family: Pixeled;
+	font-size:40px;
+	font-weight: bolder;
+	padding: 20px;
+}
+.bottom-invaders{
+	padding:10px;
+	width:10%;
+	height:10%;
+}
+.bottom-invaders-img{
+	padding:10px;
+	width:7%;
+	height:7%;
+}
+.jogo{
+	color:white;
+	font-family: Pixeled;
+	font-size:20px;
+	font-weight: bolder;
+	z-index: 5;
+}
+#canvas{
+	border-bottom:2px solid white;
+}
+
+a, a:visited, a:hover{
+	color:gray;
+	text-decoration: underline;
+}
+
+spam{
+	color:yellow;
+}
+
+.red{
+	color:darkred;
+	font-size: 50px;
+}
+
+.background{
+	background-color: white;
+	margin-top: 10px;
+	padding: 5px;
+}
+
+.form-submit{
+	background-color: #5FE825;
+	border-style: none;
+	width: 100px;
+	padding: 10px 0px 10px 0px;
+	margin-bottom:20px;
+}
+
+.form-reset{
+	background-color: #BF4B36;
+	border-style: none;
+	width: 100px;
+	padding: 10px 0px 10px 0px;
+}

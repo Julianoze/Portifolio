@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html class="no-js" lang="pt-br">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="refresh" content="888">
+	<title>FATEC INVADERS</title>
+	<link rel="shortcut icon" href="src/style/img/favicon.png" />
+	<link rel="stylesheet" type="text/css" href="src/style/css/foundation.css" />
+	<link rel="stylesheet" type="text/css" href="src/style/css/app.css" />
+	<link rel="stylesheet" type="text/css" href="src/style/css/slick.css" />
+	<link rel="stylesheet" type="text/css" href="src/style/css/slick-theme.css" />
+	<link rel="stylesheet" type="text/css" href="src/style/css/modal.css" />
+</head>
+
+<body>
+	<div class="reveal" data-reveal>
+		<div>
+			<div id="texto">
+			</div>
+			<button class="close-button" id="reveal" type="button">
+				<span class="red" aria-hidden="true">&times;</span>
+			</button>
+		</div>
+	</div>
+	<center>
+		<br class="row">
+		<div class="large-4 medium-4 column text-align-left jogo">SCORE</br>0000</div>
+		<div class="large-4 medium-4 column text-align-center jogo">HI-SCORE</br>9999</div>
+		<div class="large-4 medium-4 column text-align-rigth jogo">SCORE</br>0000</div>
+		</div>
+	</center>
+	<div id="canvas">
+		<canvas id="meu_canvas"></canvas>
+	</div>
+	<div class="row expanded">
+		<div class="large-4 medium-4 column text-align-left jogo">
+			3
+			<img class="bottom-invaders" src="src/style/img/nave.png" alt="imagem da nave">
+			<img class="bottom-invaders" src="src/style/img/nave.png" alt="imagem da nave">
+			<img class="bottom-invaders" src="src/style/img/nave.png" alt="imagem da nave">
+		</div>
+		<div class="large-1 medium-1 column text-align-right jogo"></div>
+		<center>
+			<div class="large-2 medium-2 column text-align-right jogo">
+				<a href="index.html">VOLTAR</a>
+			</div>
+		</center>
+		<center>
+			<div class="large-4 medium-4 column text-align-right jogo">
+				<a target="_blank" href="https://www.github.com/julianoze">
+					<img class="bottom-invaders-img" src="src/style/img/Footer/git.png" alt="GITHUB Logo">
+				</a>
+				JULIANO BRAZ
+			</div>
+		</center>
+		<div class="large-1 medium-1 column text-align-right jogo">CREDITS 00</div>
+</body>
+<script src="src/js/jogo/Animacao.js"></script>
+<script src="src/js/jogo/Nave.js"></script>
+<script src="src/js/jogo/Tiro.js"></script>
+<script src="src/js/jogo/Professor.js"></script>
+<script src="src/js/jogo/modal.js"></script>
+<script src="src/js/jogo/principal.js"></script>
+<script src="src/js/vendor/slick.js"></script>
+<script src="src/js/vendor/slick-carousel.js"></script>
+</body>
+
+</html>

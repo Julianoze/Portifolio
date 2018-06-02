@@ -1,0 +1,42 @@
+.imagem {
+    box-sizing: border-box;
+    background-color: lawngreen;
+    height: 230px;
+    width: 230px;
+    margin-left:30px;
+    margin-top:20px;
+}
+
+.p-modal,
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.p-modal {
+    text-align: justify;
+    line-height: 30px;
+    margin-left: 20px;
+    padding-right: 20px;
+}
+
+.p-background {
+    background-color: #F7F7F7;
+    padding: 20px 0px 20px 0px;
+    margin-bottom: 20px;
+}
+
+.fundo {
+    background-color: white;
+    padding: 0px 50px 50px 50px;
+}
+
+.slick {
+    margin-top: 20px;
+}
+
+h3 {
+    width: 100px;
+    height: 100px;
+    border: 10px solid #EDEDED;
+    box-shadow: 1px 6px 5px -5px rgba(0, 0, 0, 0.75);
+}

@@ -1,0 +1,92 @@
+<%- contentFor('content') %>
+<center id="logo">
+	<img src="/style/img/index/logo.png" alt="logo do jogo">
+</center>
+<center>
+	<div id="botao" class="hide-for-small-only">
+		<button id="botao1" class="botao">
+			JOGAR
+		</button>
+		<center>
+			<button id="botao2" data-open="comojogar" class="botao">
+				COMO JOGAR
+			</button>
+		</center>
+		<button id="botao3" data-open="sobre" class="botao">
+			SOBRE
+		</button>
+	</div>
+	<div class="show-for-small-only">
+		<button data-open="sobre" class="botao">
+			SOBRE
+		</button>
+	</div>
+</center>
+<div class="reveal" id="comojogar" data-reveal>
+	<div class="row">
+		<div class="large-12 medium-12 column end p-background">
+			<center><h1>Tutorial</h1></center>
+			<p class="p-modal">Dificuldade: ✰✰✰✰✰ | Habilidades: ✰✰✰✰✰</p>
+			<p class="p-modal">Embora o nível de dificuldade e habilidade seja alto, você vai conseguir jogar, acompanhe abaixo</p>
+			<p class="p-modal">→   Move para direita, ←   Move para outra direita, espaço atira</p>
+			<p class="p-modal">Bom jogo!</p>
+		</div>
+	</div>
+	<button class="close-button" data-close aria-label="Close modal" type="button">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+<div class="reveal" id="sobre" data-reveal>
+	<div class="row">
+		<div class="large-12 medium-12 column end p-background">
+			<!-- Sobre o Jogo -->
+			<center>
+				<h1>Sobre o Projeto</h1>
+			</center>
+			<p class="p-modal"> Este projeto foi concluído em sua primeira etapa, em Novembro de 2017, com o objetivo de cumprimir a ementa proposta
+				pela disciplina de portifólios da
+				<a href="http://www.fatecjales.edu.br/">Fatec Jales</a>, um pouco mais de seis meses após em Maio de 2018, quando eu escrevo este texto. Este portifólio, está
+				sendo refeito. </p>
+			<p class="p-modal">Aparentemente poucas coisas mudaram a nível visual, mas se você acessar o meu
+				<a href="https://github.com/julianoze/Portifolio">GitHub</a> verá que por tras, na parte do código o projeto sofreu uma grande evolução, dentre os principais pontos a
+				enumerar, está na escrita de um código mais limpo e inteligente, garantindo uma melhora na performance do jogo, com
+				uma quantidade menor de código.</p>
+		</div>
+		<div class="large-12 medium-12 column end p-background">
+			<!-- Sobre o Jogo -->
+			<center>
+				<h1>Sobre o jogo</h1>
+			</center>
+			<p class="p-modal">Embora tenha sido modificado eu segui como base o Ebook do Éderson Cássio, da Casa do Código, o livro estava escrito
+				de uma maneira antiga através de objetos e eventos, o que torna-va um código não muito elegante e legível, mas muito
+				funcional. Quando pensei em fazer o jogo já imaginava o que queria, mas ao começar a ler o livro, eu comecei a refazer
+				nos padrões mais recentes, com classes e métodos para controle dos objetos. Ainda está longe do ideal, mas ainda assim
+				com essa refatoração, o código está muito elegante.
+			</p>
+		</div>
+		<div class="large-12 medium-12 column end p-background">
+			<!-- Sobre mim -->
+			<center>
+				<h1>Sobre o autor(Eu): </h1>
+			</center>
+			<p class="p-modal"> Meu nome é Juliano Braz, hoje tenho
+				<span id="idade"></span>, e não, não fico atualizando a minha idade a cada ano que passa. Sou formado e já atuei na área de eletrotécnica,
+				mas em 2015, revivi minha paixão pelas máquinas, não possuia nenhum conhecimento nem de lógica, muito menos algoritmo
+				embora tenha aprendido muitas tecnologias que não se utilizam a um bom tempo, a faculdade me ensinou uma das coisas
+				mais importantes, que talvez eu levasse tempo para aprender sozinho, não espere que alguem te ensine, corra atrás.</p>
+			<p class="p-modal">Quando comecei a me aventurar com JS, foi porque ouvia pelos corredores da faculdade ao fim do segundo semestre, que
+				Javascript era a pior matéria da faculdade, e com isso na cabeça comecei a desbravar o mundo de JS, durante as férias
+				e encontrei uma paixão ali, com o passar do tempo eu ia me aprofundando mais e mais. Este portifólio assim como meu
+				TG com o Diego e o Emerson é feito inteiramente em Javascript.
+			</p>
+			</p>
+		</div>
+	</div>
+	<button class="close-button" data-close aria-label="Close modal" type="button">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+<script>
+        document.getElementById("idade").innerHTML = (new Date().getFullYear() - 1994)
+</script>
+<script src="/js/index.js"></script>

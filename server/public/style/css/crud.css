@@ -1,0 +1,70 @@
+body {
+    background-image: url("../img/background.png");
+}
+
+.form{
+    margin-top: 40px;
+}
+
+.space{
+    padding: 20px;
+}
+
+.thumb{
+    height: 50px;
+    width: auto;
+}
+
+.list-a{
+    text-decoration: none;
+    font-size: 35px;
+}
+
+.list-a:hover{
+    text-decoration: none;
+}
+
+.list-a-sub{
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.list-a-sub:hover{
+    text-decoration: none;
+}
+
+i.deletar{
+    color:#E8000E;
+}
+
+i.editar{
+    color:green;
+}
+.button{
+    bottom:20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    position: absolute;
+    right: 20px;
+}
+
+.button.hollow{
+    background-color: #E8000E;
+    box-shadow: inset 53px -43px 122px 0px rgba(0,0,0,0.75);
+    border: none;
+}
+
+.button.hollow:hover{
+    background-color: #E8000E;
+    box-shadow: inset 100px -43px 122px 0px rgba(0,0,0,0.75);
+    border: none;
+}
+
+.p-button{
+    margin-top:-10px;
+    font-size:60px;
+    font-weight: bolder;
+    color:white;
+    text-shadow: -4px 4px 5px #450004;
+}

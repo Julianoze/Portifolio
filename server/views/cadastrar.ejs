@@ -1,0 +1,33 @@
+<%- contentFor('style') %>
+<link href="/style/css/crud.css" rel="stylesheet" type="text/css" />
+<link href="/style/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="/style/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+<link href="/style/css/froala_style.css" rel="stylesheet" type="text/css" />
+
+
+<%- contentFor('content') %>
+<div class="row p-background form" >
+	<form action="">
+		<div class="large-3 column imagem"></div>
+		<div class="large-9 column end">
+			<legend>Título
+				<input type="text" name="titulo">
+			</legend>
+			<legend>Conteúdo
+			<textarea name="conteudo"></textarea>
+			</legend>
+			<center>
+				<input type="submit" class="form-submit" value="Enviar">
+				<input type="reset"  class="form-reset" value="Cancelar">
+			</center>	
+		</div>
+	</form>
+</div>
+
+<%- contentFor('script') %>
+<script type="text/javascript" src="/js/vendor/froala_editor.pkgd.min.js"></script>
+<script>
+	$(function() {
+	  $('textarea').froalaEditor()
+	});
+</script>
