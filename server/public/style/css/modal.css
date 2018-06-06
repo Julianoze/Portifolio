@@ -1,9 +1,9 @@
 .imagem {
     box-sizing: border-box;
-    background-color: lawngreen;
+    background-image: url('../img/icon.png');
     height: 230px;
     width: 230px;
-    margin-left:30px;
+    margin-left:20px;
     margin-top:20px;
 }
 

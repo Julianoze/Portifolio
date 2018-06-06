@@ -1,5 +1,6 @@
 body {
     background-image: url("../img/background.png");
+    overflow: auto;
 }
 
 .form{
@@ -63,8 +64,17 @@ i.editar{
 
 .p-button{
     margin-top:-10px;
-    font-size:60px;
+    font-size:50px;
     font-weight: bolder;
     color:white;
-    text-shadow: -4px 4px 5px #450004;
+}
+
+.p-cadastrar{
+    font-size:20px;
+    font-weight: bolder;
+    color:white;
+}
+
+.not-show{
+    display: none
 }

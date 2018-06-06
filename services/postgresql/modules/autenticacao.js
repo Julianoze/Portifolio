@@ -2,10 +2,11 @@
 const { Pool } = require('pg')
 const config = require('../config')
 const jwt = require('jsonwebtoken')
+const sha1 = require('sha1')
 
 const autenticacao = deps => {
   return {
-    all: (login, senha) => {
+    all: (senha) => {
       return new Promise((resolve, reject) => {
 
         // Tratamento de erro padrão
@@ -14,21 +15,18 @@ const autenticacao = deps => {
         const pool = new Pool(config())
 
         // Executa a Query
-        pool.query('SELECT * FROM usuario WHERE loginusuario = $1 AND senhaescola = $2 AND Eliminado = False', [login, senha], (error, result) => {
+        pool.query('SELECT * FROM portifolio.usuario WHERE senha = $1', [sha1(senha)], (error, result) => {
 
           // Se apresentar erro rejeita a promise
           if (error || result.rowCount === 0) {
             errorHandler(error, 'Usuario não localizado', reject)
             return false
           }
-          
           // Prepara o retorno
-          let retorno = result.rows
-          let idescola = retorno[0].idescola
           let data = new Date()
           data = data.getTime()
           // Assina o token
-          const token = jwt.sign({idescola, data}, process.env.JWT_SECRET)
+          const token = jwt.sign({ data }, process.env.JWT_SECRET)
           
           // Após dar sucesso retorna os dados
           resolve({token: token})

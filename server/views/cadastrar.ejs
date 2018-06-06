@@ -6,19 +6,37 @@
 
 
 <%- contentFor('content') %>
+<% for(conteudo of conteudo) {%> <% } %>
 <div class="row p-background form" >
-	<form action="">
-		<div class="large-3 column imagem"></div>
+	<form action="/cadastrar" method="POST" enctype="multipart/form-data">
+		<div class="large-3 column ">
+			<img class="imagem" "<% if(conteudo.src != "") {%>  src='<%= conteudo.src %>' <% } %>">
+			<input type="file" id="teste" name="upload" multiple="multiple" accept=".jpg, .jpeg, .png" required>
+		</div>
 		<div class="large-9 column end">
-			<legend>Título
-				<input type="text" name="titulo">
-			</legend>
+			<div class="row">
+				<div class="large-6 column">
+					<legend>Título
+						<input type="text" value="<%= conteudo.idconteudo %>" class="not-show" name="idconteudo" readonly>						
+						<input type="text" value="<%= conteudo.titulo %>" name="titulo" required>
+					</legend>
+				</div>
+				<div class="large-6 column">				
+					<legend>Professor
+						<select name="professor" id="">
+							<% for(professor of professor) {%>
+								<option value="<%= professor.idprofessor %>"  <% if(professor.idprofessor == conteudo.idprofessor) {%> <%= 'selected' %> <% }%>><%= professor.nomeprofessor %></option>																		
+							<% } %>
+						</select>
+					</legend>
+				</div>
+			</div>
 			<legend>Conteúdo
-			<textarea name="conteudo"></textarea>
+				<textarea name="conteudo" required><%= conteudo.conteudo %></textarea>
 			</legend>
 			<center>
-				<input type="submit" class="form-submit" value="Enviar">
-				<input type="reset"  class="form-reset" value="Cancelar">
+				<input type="submit" class="form-button" value="Enviar">
+				<button  class="form-button button" onclick="window.location.href='/listar'" ><p class="p-cadastrar">Voltar</p></button>
 			</center>	
 		</div>
 	</form>

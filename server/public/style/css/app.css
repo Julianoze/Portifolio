@@ -72,12 +72,12 @@ spam{
 	padding: 5px;
 }
 
-.form-submit{
-	background-color: #5FE825;
+.form-button{
 	border-style: none;
 	width: 100px;
 	padding: 10px 0px 10px 0px;
 	margin-bottom:20px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 .form-reset{
@@ -85,4 +85,5 @@ spam{
 	border-style: none;
 	width: 100px;
 	padding: 10px 0px 10px 0px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }

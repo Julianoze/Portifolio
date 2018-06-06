@@ -12,23 +12,23 @@ const escola = deps => {
         const pool = new Pool(config())
 
         // Executa a Query
-        pool.query('SELECT * FROM escola ' + condicao, (error, result) => {
+        pool.query('SELECT * FROM portifolio.conteudo ' + condicao , (error, result) => {
         
           // Se apresentar erro rejeita a promise
           if (error) {
-            errorHandler(error, 'Falha ao listar Escola', reject)
+            errorHandler(error, 'Falha ao listar conteúdo', reject)
             return false
           }
         
           // Se der sucesso retorna os dados
-          resolve({ escola: result.rows })
+          resolve({ conteudo: result.rows })
 
           // Fecha conexão
           pool.end()
         })
       })
     },
-    save: (razaosocial, nomefantasia, endereco, bairro, cidade, uf, cep, telefone, cnpj, ie) => {
+    save: (titulo, conteudo, professor, src) => {
       return new Promise((resolve, reject) => {
 
         // Tratamento de erro padrão
@@ -37,11 +37,11 @@ const escola = deps => {
         const pool = new Pool(config())
 
         // Executa a Query
-        pool.query('INSERT INTO escola(razaosocial, nomefantasia, endereco, bairro, cidade, uf, cep, telefone, cnpj, ie)VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) returning * ', [razaosocial, nomefantasia, endereco, bairro, cidade, uf, cep, telefone, cnpj, ie], (error, result) => {
+        pool.query('INSERT INTO portifolio.conteudo(titulo, conteudo, idprofessor, src) VALUES ($1, $2, $3, $4);', [titulo, conteudo, professor, src], (error, result) => {
         
           // Se apresentar erro rejeita a promise
           if (error) {
-            errorHandler(error, 'Falha ao cadastrar Escola', reject)
+            errorHandler(error, 'Falha ao cadastrar conteúdo', reject)
             return false
           }
         
@@ -53,7 +53,7 @@ const escola = deps => {
         })
       })
     },
-    update: (idescola, razaosocial, nomefantasia, endereco, bairro, cidade, uf, cep, telefone, cnpj, ie) => {
+    update: (idconteudo, titulo, conteudo, professor, src) => {
       return new Promise((resolve, reject) => {
 
         // Linha 61, tratamento de erro padrão
@@ -62,11 +62,11 @@ const escola = deps => {
         const pool = new Pool(config())
 
         // Executa a Query
-        pool.query('UPDATE escola SET razaosocial=$2, nomefantasia=$3, endereco=$4, bairro=$5, cidade=$6, uf=$7, cep=$8, telefone=$9, cnpj=$10, ie=$11 WHERE idescola=$1;', [idescola, razaosocial, nomefantasia, endereco, bairro, cidade, uf, cep, telefone, cnpj, ie], (error, result) => {
+        pool.query('UPDATE portifolio.conteudo SET titulo=$2, conteudo=$3, idprofessor=$4, src = $5  WHERE idconteudo=$1;', [idconteudo, titulo, conteudo, professor, src], (error, result) => {
 
           // Se apresentar erro rejeita a promise
           if (error) {
-            errorHandler(error, 'Falha ao atualizar Escola', reject)
+            errorHandler(error, 'Falha ao atualizar conteúdo', reject)
             return false
           }
 
@@ -78,7 +78,7 @@ const escola = deps => {
         })
       })
     },
-    del: (idescola) => {
+    del: (idconteudo) => {
       return new Promise((resolve, reject) => {
 
         // Linha 86, tratamento de erro padrão
@@ -87,11 +87,11 @@ const escola = deps => {
         const pool = new Pool(config())
 
         // Executa a Query
-        pool.query('DELETE FROM escola WHERE idescola = $1;', [idescola], (error, result) => {
+        pool.query('UPDATE portifolio.conteudo SET eliminado = True WHERE idconteudo=$1;', [idconteudo], (error, result) => {
         
           // Se apresentar erro rejeita a promise
           if (error) {
-            errorHandler(error, 'Falha ao deletar Escola', reject)
+            errorHandler(error, 'Falha ao eliminar conteúdo', reject)
             return false
           }
         

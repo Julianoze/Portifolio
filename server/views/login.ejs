@@ -1,0 +1,20 @@
+<%- contentFor('style') %>
+<link href="/style/css/crud.css" rel="stylesheet" type="text/css" />
+<link href="/style/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<%- contentFor('content') %>
+<% if(error != '') {%>
+    <script>alert('Senha incorreta')</script>
+<%= error = '' %>
+<% } %>
+<form action="/login" method="POST" class="row form">
+    <div class="large-4 column">.</div> 
+    <div class="large-4 column end p-background" style="padding:20px"> 
+        <legend>Senha
+            <input type="password" name="senha" required>
+        </legend>
+        <center>
+            <input type="submit" class="form-submit" value="ENTRAR">
+        </center>	
+    </div>
+</form>

@@ -3,10 +3,12 @@ const errorHandler = (error, msg, rejectFunction) => {
   rejectFunction({ error: msg })
 }
 
-const escolaModule = require('./modules/escola')({ errorHandler })
-const atividadeModule = require('./modules/atividade')({ errorHandler })
+const conteudoModule = require('./modules/conteudo')({ errorHandler })
+const professorModule = require('./modules/professor')({ errorHandler })
 const autenticacaoModule = require('./modules/autenticacao')({ errorHandler })
 
 module.exports = {
   autenticacao: () => autenticacaoModule,
+  professor: () => professorModule,
+  conteudo: () => conteudoModule,
 }

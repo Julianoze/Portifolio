@@ -10,11 +10,18 @@ router.get('/jogo', async (req, res, next) => {
 })
 
 router.get('/listar', async (req, res, next) => {
-    res.render('listar')
+    try{
+        const { professor } = await db.professor().all()
+        const { conteudo } = await db.conteudo().all('where eliminado = False')
+        
+        res.render('listar', { professor: professor, conteudos: conteudo })    
+    } catch (error) {
+        console.log(error)
+    }
 })
-
-router.get('/cadastrar', async (req, res, next) => {
-    res.render('cadastrar')
-})
-
+/* 
+router.get('*', function(req, res){
+    res.redirect('/');
+});
+ */
 module.exports = router
