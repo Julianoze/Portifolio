@@ -19,9 +19,13 @@ router.get('/listar', async (req, res, next) => {
         console.log(error)
     }
 })
-/* 
-router.get('*', function(req, res){
-    res.redirect('/');
-});
- */
+
+router.get('/listar/:id', async (req, res, next) => {
+    try{
+        await db.conteudo().all('where eliminado = false and idprofessor = ' + idprofessor)
+        
+    } catch (error) {
+        console.log(error)
+    }
+})
 module.exports = router

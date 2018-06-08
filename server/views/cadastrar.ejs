@@ -10,8 +10,8 @@
 <div class="row p-background form" >
 	<form action="/cadastrar" method="POST" enctype="multipart/form-data">
 		<div class="large-3 column ">
-			<img class="imagem" "<% if(conteudo.src != "") {%>  src='<%= conteudo.src %>' <% } %>">
-			<input type="file" id="teste" name="upload" multiple="multiple" accept=".jpg, .jpeg, .png" required>
+			<img class="imagem" "<% if(conteudo.src != " ") {%>  src='<%= conteudo.src %>' <% } %>">
+			<input type="file" id="teste" name="upload" multiple="multiple" accept=".jpg, .jpeg, .png">
 		</div>
 		<div class="large-9 column end">
 			<div class="row">
@@ -36,11 +36,12 @@
 			</legend>
 			<center>
 				<input type="submit" class="form-button" value="Enviar">
-				<button  class="form-button button" onclick="window.location.href='/listar'" ><p class="p-cadastrar">Voltar</p></button>
 			</center>	
 		</div>
 	</form>
 </div>
+<div class="row expanded gambiarra" ></div>
+<button  class="form-button button" onclick="window.location.href='/listar'" ><p class="p-cadastrar">Voltar</p></button>
 
 <%- contentFor('script') %>
 <script type="text/javascript" src="/js/vendor/froala_editor.pkgd.min.js"></script>

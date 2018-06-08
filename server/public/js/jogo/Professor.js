@@ -16,6 +16,7 @@ class Professor {
         //Contador da sprite explosão
         this._i = 0
         this._desligado = false
+        this._conteudo = ''
     }
     //Método responsável pela movimentação
     atualizar() {

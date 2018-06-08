@@ -41,14 +41,6 @@ i.deletar{
 i.editar{
     color:green;
 }
-.button{
-    bottom:20px;
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-    position: absolute;
-    right: 20px;
-}
 
 .button.hollow{
     background-color: #E8000E;
@@ -77,4 +69,17 @@ i.editar{
 
 .not-show{
     display: none
+}
+
+.button{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    position: sticky;
+    bottom: 20px;
+    left: 90%;
+}
+
+.gambiarra{
+    height:40vh;
 }

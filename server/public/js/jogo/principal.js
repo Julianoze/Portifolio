@@ -1,3 +1,4 @@
+window.onload = () => {
     // Declaração da classe
 	let animacao = new Animacao()
 	animacao._trilha.addEventListener("ended", () => {
@@ -8,8 +9,8 @@
     let contador = 0;
         
     // Declaração das imagens utilizadas no jogo
-    let imagens =  [{nomeImagemImagem: 'imgNave', caminho:'/style/img/nave.png'}, {nomeImagem: 'explosao', caminho:'/style/img/explosao.png'}, {nomeImagem: 'thiago', nomeProfessor: 'Thiago', caminho:'/style/img/thiago.png'}, {nomeImagem: 'cristiano', nomeProfessor: 'Cristiano', caminho:'/style/img/cristiano.png'}, {nomeImagem: 'alexandre', nomeProfessor: 'Alexandre', caminho:'/style/img/alexandre.png'}, {nomeImagem: 'jeferson', nomeProfessor: 'Jeferson', caminho:'/style/img/jeferson.png'}, {nomeImagem: 'jorge', nomeProfessor: 'Jorge', caminho:'/style/img/jorge.png'}, {nomeImagem: 'rogerio', nomeProfessor: 'Rogerio', caminho:'/style/img/rogerio.png'}, {nomeImagem: 'fabiana', nomeProfessor: 'Fabiana', caminho:'/style/img/fabiana.png'}, {nomeImagem: 'satiko', nomeProfessor: 'Satiko', caminho:'/style/img/satiko.png'}, {nomeImagem: 'ligia', nomeProfessor: 'Ligia', caminho:'/style/img/ligia.png'}, {nomeImagem: 'boer', nomeProfessor: 'Boer', caminho:'/style/img/boer.png'}]
-    let imagemObject = [{}]
+    let imagens =  [{nomeImagemImagem: 'imgNave', caminho:'/style/img/nave.png'}, {nomeImagem: 'explosao', caminho:'/style/img/explosao.png'}, {idprofessor: 3, nomeImagem: 'thiago', nomeProfessor: 'Thiago', caminho:'/style/img/thiago.png'}, {idprofessor: 4, nomeImagem: 'cristiano', nomeProfessor: 'Cristiano', caminho:'/style/img/cristiano.png'}, {idprofessor: 2, nomeImagem: 'alexandre', nomeProfessor: 'Alexandre', caminho:'/style/img/alexandre.png'}, {idprofessor: 5, nomeImagem: 'jeferson', nomeProfessor: 'Jeferson', caminho:'/style/img/jeferson.png'}, {idprofessor: 1, nomeImagem: 'jorge', nomeProfessor: 'Jorge', caminho:'/style/img/jorge.png'}, {idprofessor: 8, nomeImagem: 'rogerio', nomeProfessor: 'Rogerio', caminho:'/style/img/rogerio.png'}, {idprofessor: 9, nomeImagem: 'fabiana', nomeProfessor: 'Fabiana', caminho:'/style/img/fabiana.png'}, {idprofessor: 7, nomeImagem: 'satiko', nomeProfessor: 'Satiko', caminho:'/style/img/satiko.png'}, {idprofessor: 9, nomeImagem: 'ligia', nomeProfessor: 'Ligia', caminho:'/style/img/ligia.png'}, {idprofessor: 9, nomeImagem: 'boer', nomeProfessor: 'Boer', caminho:'/style/img/boer.png'}]
+	let imagemObject = [{}]
 
 	// Array responsável por gerar as posições aleatóriamente
 	let arrayX = [(window.innerWidth / 2) - 400, (window.innerWidth / 2) + 400, (window.innerWidth / 2) - 200, (window.innerWidth / 2) + 200, window.innerWidth / 2, (window.innerWidth / 2) - 400, (window.innerWidth / 2) + 400, (window.innerWidth / 2) - 200, (window.innerWidth / 2) + 200, window.innerWidth / 2]
@@ -44,7 +45,19 @@
             professor._nome = imagens[i].nomeProfessor
             arrayX.pop(arrayX.length - 1)
             arrayY.pop(arrayY.length - 1)
-            animacao.novoSprite(professor)
+			animacao.novoSprite(professor)
+			var jqxhr = $.get( "/listar/"+$(idprofessor)+/"/", function() {
+				alert( "success" );
+			  })
+				.done(function() {
+				  alert( "second success" );
+				})
+				.fail(function() {
+				  alert( "error" );
+				})
+				.always(function() {
+				  alert( "finished" );
+				});
         })
     }
 
@@ -78,4 +91,4 @@
 			}
 		}
 	})
-	
+}
